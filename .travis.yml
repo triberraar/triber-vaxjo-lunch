@@ -1,0 +1,9 @@
+jdk:
+- oraclejdk8
+notifications:
+  email: false
+script:
+- mvn verify
+cache:
+  directories:
+  - $HOME/.m2
