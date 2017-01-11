@@ -1,4 +1,4 @@
-package com.gearsofleo.vaxjo.lunchparser
+package com.gearsofleo.vaxjo.lunchparser.domain
 
 data class LunchItem(val day: String? = null, val description: String? = null, val items: Set<String>)
 data class RestaurantLunch(val restaurant: Restaurant, val lunchItems: Set<LunchItem>)

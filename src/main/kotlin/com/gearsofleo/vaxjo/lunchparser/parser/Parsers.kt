@@ -1,8 +1,8 @@
 package com.gearsofleo.vaxjo.lunchparser.parser
 
-import com.gearsofleo.vaxjo.lunchparser.LunchItem
-import com.gearsofleo.vaxjo.lunchparser.Restaurant
-import com.gearsofleo.vaxjo.lunchparser.RestaurantLunch
+import com.gearsofleo.vaxjo.lunchparser.domain.LunchItem
+import com.gearsofleo.vaxjo.lunchparser.domain.Restaurant
+import com.gearsofleo.vaxjo.lunchparser.domain.RestaurantLunch
 import org.jsoup.Jsoup
 import org.springframework.stereotype.Component
 

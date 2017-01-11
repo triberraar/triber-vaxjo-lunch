@@ -1,5 +1,7 @@
 package com.gearsofleo.vaxjo.lunchparser
 
+import com.gearsofleo.vaxjo.lunchparser.domain.Restaurant
+import com.gearsofleo.vaxjo.lunchparser.domain.RestaurantLunch
 import com.gearsofleo.vaxjo.lunchparser.parser.Parser
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
