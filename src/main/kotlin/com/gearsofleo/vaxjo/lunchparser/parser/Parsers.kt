@@ -75,7 +75,7 @@ class JacksonsParser : Parser {
             if (isDay(element.text())) {
                 previousDay = element.text()
             }
-            if (element.text().equals("FISK") || element.text().equals("VEGETARISK")) {
+            if (element.text().equals("FISK") || element.text().equals("VEGETARISK") || element.text().equals("JACKSON`S") || element.text().equals("HUSMAN")) {
                 previousDescription = element.text()
             }
         }
