@@ -1,5 +1,7 @@
 jdk:
 - oraclejdk8
+node_js:
+ - node
 notifications:
   email: false
 install:
@@ -11,3 +13,4 @@ script:
 cache:
   directories:
   - $HOME/.m2
+  - node_modules
