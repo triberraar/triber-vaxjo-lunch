@@ -2,7 +2,11 @@ jdk:
 - oraclejdk8
 notifications:
   email: false
+install:
+- npm --prefix src/main/ui install
 script:
+- npm --prefix src/main/ui run test
+- npm --prefix src/main/ui run build:prod
 - mvn verify
 cache:
   directories:
