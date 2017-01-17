@@ -30,7 +30,7 @@ class MassimoParser : Parser {
             }
             if (day != null && !items.isEmpty()) {
                 if (isDay(day)) {
-                    lunchItems.add(LunchItem(items = items, day = day))
+                    lunchItems.add(LunchItem(items = items, day = translateDay(day)))
                 } else {
                     lunchItems.add(LunchItem(items = items, description = day))
                 }
@@ -61,7 +61,7 @@ class JacksonsParser : Parser {
     override fun parse(): RestaurantLunch {
         val doc = Jsoup.connect("http://restaurangjacksons.se/meny").get()
         val lunchItems: MutableSet<LunchItem> = mutableSetOf()
-        var previousDay: String? = null
+        var previousDay: Int? = null
         var previousDescription: String? = null
         for (element in doc.select("#dagens p")) {
             if (previousDay != null) {
@@ -73,7 +73,7 @@ class JacksonsParser : Parser {
                 previousDescription = null
             }
             if (isDay(element.text())) {
-                previousDay = element.text()
+                previousDay = translateDay(element.text())
             }
             if (element.text().equals("FISK") || element.text().equals("VEGETARISK") || element.text().equals("JACKSON`S") || element.text().equals("HUSMAN")) {
                 previousDescription = element.text()
@@ -115,7 +115,7 @@ class CastellinaParser : Parser {
                     val parts = perDay.split("</span></p>")
                     if (parts.size == 2) {
                         if (isDay(parts[0])) {
-                            lunchItems.add(LunchItem(day = parts[0], items = setOf(parts[1].trim())))
+                            lunchItems.add(LunchItem(day = translateDay(parts[0]), items = setOf(parts[1].trim())))
                         } else if (parts[0].trim().toUpperCase() == "VECKANS PASTA" || parts[0].trim().toUpperCase() == "VECKANS VEGETARISKA") {
                             lunchItems.add(LunchItem(description = parts[0], items = setOf(parts[1].trim())))
                         }
@@ -133,6 +133,17 @@ fun isDay(day: String): Boolean {
     when (day.toUpperCase()) {
         "MÅNDAG", "TISDAG", "ONSDAG", "TORSDAG", "FREDAG" -> return true
         else -> return false
+    }
+}
+
+fun translateDay(day: String): Int {
+    when (day.toUpperCase()) {
+        "MÅNDAG" -> return 0
+        "TISDAG" -> return 1
+        "ONSDAG" -> return 2
+        "TORSDAG" -> return 3
+        "FREDAG" -> return 4
+        else -> throw IllegalArgumentException("Not a weekday: ${day}")
     }
 }
 
