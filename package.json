@@ -32,5 +32,8 @@
     "copy": "cpx \"build/**\" \"src/main/resources/static\"",
     "build:prod": "npm run build && npm run copy",
     "postinstall": "if [ $HEROKU ]; then npm run build:prod; fi"
+  },
+  "jest": {
+    "setupFiles": ["test-setup.js"]
   }
 }
