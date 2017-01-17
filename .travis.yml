@@ -8,10 +8,10 @@ before_install:
   - nvm use node
   - nvm run node --version
 install:
-- npm --prefix src/main/ui install
+- npm install
 script:
-- npm --prefix src/main/ui run test
-- npm --prefix src/main/ui run build:prod
+- npm run test
+- npm run build:prod
 - mvn verify
 cache:
   directories:
