@@ -10,9 +10,7 @@ before_install:
 install:
 - npm install
 script:
-- if [ $HEROKU ]; then echo "here"; else echo "not here"; fi
 - npm run test
-- npm run build:prod
 - mvn verify
 cache:
   directories:
