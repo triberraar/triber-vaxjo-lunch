@@ -31,6 +31,6 @@
     "eject": "react-scripts eject",
     "copy": "cpx \"build/**\" \"src/main/resources/static\"",
     "build:prod": "npm run build && npm run copy",
-    "postinstall": "npm run build && npm run copy"
+    "postinstall": "if [ $HEROKU ]; then npm run build:prod; fi"
   }
 }
