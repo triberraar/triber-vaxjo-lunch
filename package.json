@@ -4,7 +4,6 @@
   "private": true,
   "proxy": "http://localhost:8080",
   "devDependencies": {
-    "redux-devtools": "^3.3.2"
   },
   "dependencies": {
     "axios": "^0.15.3",
@@ -22,7 +21,8 @@
     "redux-actions": "^1.2.0",
     "redux-thunk": "^2.1.0",
     "reselect": "^2.5.4",
-    "uuid": "^3.0.1"
+    "uuid": "^3.0.1",
+    "redux-devtools": "^3.3.2"
   },
   "scripts": {
     "start": "react-scripts start",
