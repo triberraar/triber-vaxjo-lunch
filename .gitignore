@@ -1,2 +1,5 @@
 target
 src/main/ui/node_modules
+build
+node_modules
+src/main/resources/static
